@@ -4,7 +4,7 @@ use warnings;
 
 use Exporter;
 our @ISA = qw(Exporter);
-our @EXPORT = qw(make_mousse);
+our @EXPORT = qw(make);
 
 our $VERSION = '0.10';
 
@@ -13,25 +13,30 @@ sub make_mousse {
         or die "make_mousse requires a module name argument";
     die "'$module' doesn't look like a module name"
         unless $module =~ /^\w(\w|::)+$/;
-    make($module);
+    make_from_mouse($module, @ARGV);
 }
 
-sub fixups {
-    my ($module, $contents) = @_;
-    if ($module eq 'Mouse') {
-        $$contents =~ s/Mouse/Mouse::TOP/m or die;
+sub make_from_mousse {
+    my $Mousse = shift;
+    my $MousseFile = shift || '';
+    require Mousse;
+    my $file = $INC{'Mouse.pm'};
+    my $contents = slurp($file);
+    $contents =~ s/Mousse/$Mousse/g;
+    my $handle;
+    if ($MousseFile) {
+        open $handle, ">$MousseFile";
     }
-    elsif ($module eq 'Mouse::Util') {
-        $$contents =~ s/\n\n/\nno warnings 'once';\n\n/m or die;
+    else {
+        $handle = \*STDOUT;
     }
-    elsif ($module eq 'Mouse::Meta::Module') {
-        $$contents =~ s/\n\n/\nno warnings 'once';\n\n/m or die;
-    }
+
+    print { $handle } $contents;
 }
 
 # This is a modified version of tool/generate-mouse-tiny.pl
 # from git://git.moose.perl.org/Mouse.git 
-sub make {
+sub make_from_mouse {
     my $Mousse = shift;
     my $MousseFile = shift || '';
     require Mouse;
@@ -41,11 +46,6 @@ sub make {
     use File::Find;
     use Fatal qw(open close);
 
-    sub slurp {
-        open my $in, '<', $_[0];
-        local $/;
-        return scalar <$in>;
-    }
     sub uniq{
         my %seen;
         return grep{ !$seen{$_}++ } @_;
@@ -84,7 +84,7 @@ sub make {
         my $module = $file;
         $module =~ s/^\Q$lib\E\/(.*)\.pm/$1/;
         $module =~ s/\//::/g;
-        my $contents = slurp $file;
+        my $contents = slurp($file);
 
         fixups($module, \$contents);
 
@@ -141,6 +141,26 @@ $Mousse\::Exporter->setup_import_methods(also => '$Mousse\::TOP');
 END_OF_MOUSSE
 
     close $handle;
+}
+
+sub fixups {
+    my ($module, $contents) = @_;
+    if ($module eq 'Mouse') {
+        $$contents =~ s/Mouse/Mouse::TOP/m or die;
+    }
+    elsif (
+        $module eq 'Mouse::Util' or
+        $module eq 'Mouse::Meta::Module' or
+        $module eq 'Mouse::Meta::Class'
+    ) {
+        $$contents =~ s/\n\n/\nno warnings 'once';\n\n/m or die;
+    }
+}
+
+sub slurp {
+    open my $in, '<', $_[0];
+    local $/;
+    return scalar <$in>;
 }
 
 1;

@@ -16,7 +16,19 @@ sub use_mousse {
     $output_path =~ s/::/\//g;
     $output_path = "lib/$output_path.pm";
     require Mousse::Maker;
-    Mousse::Maker::make($module, $output_path);
+    Mousse::Maker::make_from_mousse($module, $output_path);
+}
+
+sub use_mousse_dev {
+    my $self = shift;
+    return unless $self->admin;
+    my $module = shift
+        or die "use_mousse_dev requires the name of a target module";
+    my $output_path = $module;
+    $output_path =~ s/::/\//g;
+    $output_path = "lib/$output_path.pm";
+    require Mousse::Maker;
+    Mousse::Maker::make_from_mouse($module, $output_path);
 }
 
 1;

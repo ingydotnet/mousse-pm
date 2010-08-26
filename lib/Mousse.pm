@@ -2580,6 +2580,7 @@ sub throw_error{
 # Contents of Mouse::Meta::Class
 package Mousse::Meta::Class;
 use Mousse::Util qw/:meta get_linear_isa not_supported/; # enables strict and warnings
+no warnings 'once';
 
 use Scalar::Util qw/blessed weaken/;
 
