@@ -2,8 +2,8 @@ use Test::More tests => 1;
 
 BEGIN {
     my $module_file = "t/lib/Foo/Mousse.pm";
-    die "Delete t/lib/Foo/Mousse.pm before running this"
-        if -e $module_file;
+    unlink($module_file) if -e $module_file;
+    die if -e $module_file;
     system("(cd t; $^X Makefile.PL)");
 }
 

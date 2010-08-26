@@ -20,9 +20,13 @@ sub make_from_mousse {
     my $Mousse = shift;
     my $MousseFile = shift || '';
     require Mousse;
-    my $file = $INC{'Mouse.pm'};
+    my $file = $INC{'Mousse.pm'};
     my $contents = slurp($file);
-    $contents =~ s/Mousse/$Mousse/g;
+
+    my $Mousse2 = $Mousse;
+    $Mousse2 =~ s/::/\//g;
+
+    $contents =~ s/Mousse(.)/(($1 eq '\/' or $1 eq '.') ? $Mousse2 : $Mousse) .$1/ge;
     my $handle;
     if ($MousseFile) {
         open $handle, ">$MousseFile";
