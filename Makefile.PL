@@ -8,4 +8,6 @@ use_mousse_dev 'Mousse';
 
 all_from 'lib/Mousse/Maker.pm';
 
+clean_files 't/lib/Foo/Mousse.pm', 't/inc';
+
 WriteAll;
