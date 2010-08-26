@@ -4,7 +4,7 @@
 use strict;
 use warnings;
 
-# tell Perl we already have all of the Mouse files loaded:
+# tell Perl we already have all of the Mousse files loaded:
 BEGIN {
 	$INC{'Mousse.pm'}                             = __FILE__;
 	$INC{'Mousse/Exporter.pm'}                    = __FILE__;
@@ -27,12 +27,10 @@ BEGIN {
 	$INC{'Mousse/Util/MetaRole.pm'}               = __FILE__;
 	$INC{'Mousse/Util/TypeConstraints.pm'}        = __FILE__;
 }
-eval sprintf("#line %d %s\n", __LINE__, __FILE__) . <<'END_OF_TINY';
 
-# and now their contents:
+# and now their contents
 
 # Contents of Mouse::PurePerl
-BEGIN {
 package Mousse::PurePerl;
 
 require Mousse::Util;
@@ -805,9 +803,7 @@ sub BUILDALL {
 sub DEMOLISHALL;
 *DEMOLISHALL = \&DESTROY;
 
-}
 # Contents of Mouse::Exporter
-BEGIN {
 package Mousse::Exporter;
 use strict;
 use warnings;
@@ -1068,9 +1064,7 @@ sub _get_caller_package {
 
 #sub _spec{ %SPEC }
 
-}
 # Contents of Mouse::Util
-BEGIN {
 package Mousse::Util;
 use Mousse::Exporter; # enables strict and warnings
 no warnings 'once';
@@ -1430,9 +1424,7 @@ sub does :method {
 	goto &does_role;
 }
 
-}
 # Contents of Mouse::Meta::TypeConstraint
-BEGIN {
 package Mousse::Meta::TypeConstraint;
 use Mousse::Util qw(:meta); # enables strict and warnings
 use Scalar::Util ();
@@ -1665,9 +1657,7 @@ sub throw_error {
 	goto &Mousse::Meta::Module::throw_error;
 }
 
-}
 # Contents of Mouse::Util::TypeConstraints
-BEGIN {
 package Mousse::Util::TypeConstraints;
 use Mousse::Util qw(does_role not_supported); # enables strict and warnings
 
@@ -2078,15 +2068,13 @@ sub find_or_create_isa_type_constraint {
 	return find_or_parse_type_constraint(@_) || class_type(@_);
 }
 
-}
 # Contents of Mouse
-BEGIN {
-package Mousse;
+package Mousse::TOP;
 use 5.006_002;
 
 use Mousse::Exporter; # enables strict and warnings
 
-#our $VERSION = '0.64';
+our $VERSION = '0.64';
 
 use Carp         qw(confess);
 use Scalar::Util qw(blessed);
@@ -2234,9 +2222,7 @@ sub init_meta {
 	return $meta;
 }
 
-}
 # Contents of Mouse::Meta::Attribute
-BEGIN {
 package Mousse::Meta::Attribute;
 use Mousse::Util qw(:meta); # enables strict and warnings
 
@@ -2591,9 +2577,7 @@ sub throw_error{
 	$metaclass->throw_error(@_, depth => 1);
 }
 
-}
 # Contents of Mouse::Meta::Class
-BEGIN {
 package Mousse::Meta::Class;
 use Mousse::Util qw/:meta get_linear_isa not_supported/; # enables strict and warnings
 
@@ -3077,9 +3061,7 @@ sub does_role {
 	return 0;
 }
 
-}
 # Contents of Mouse::Meta::Method
-BEGIN {
 package Mousse::Meta::Method;
 use Mousse::Util qw(:meta); # enables strict and warnings
 use Scalar::Util ();
@@ -3127,9 +3109,7 @@ sub _equal {
 			&& $l->package_name eq $r->package_name;
 }
 
-}
 # Contents of Mouse::Meta::Method::Accessor
-BEGIN {
 package Mousse::Meta::Method::Accessor;
 use Mousse::Util qw(:meta); # enables strict and warnings
 
@@ -3305,9 +3285,7 @@ sub _generate_clearer {
 	};
 }
 
-}
 # Contents of Mouse::Meta::Method::Constructor
-BEGIN {
 package Mousse::Meta::Method::Constructor;
 use Mousse::Util qw(:meta); # enables strict and warnings
 
@@ -3512,9 +3490,7 @@ sub _generate_BUILDALL {
 	return join "\n", @code;
 }
 
-}
 # Contents of Mouse::Meta::Method::Delegation
-BEGIN {
 package Mousse::Meta::Method::Delegation;
 use Mousse::Util qw(:meta); # enables strict and warnings
 use Scalar::Util;
@@ -3569,9 +3545,7 @@ sub _generate_delegation{
 }
 
 
-}
 # Contents of Mouse::Meta::Method::Destructor
-BEGIN {
 package Mousse::Meta::Method::Destructor;
 use Mousse::Util qw(:meta); # enables strict and warnings
 
@@ -3620,9 +3594,7 @@ END_DESTROY
 	return $code;
 }
 
-}
 # Contents of Mouse::Meta::Module
-BEGIN {
 package Mousse::Meta::Module;
 use Mousse::Util qw/:meta get_code_package get_code_ref not_supported/; # enables strict and warnings
 no warnings 'once';
@@ -3946,9 +3918,7 @@ sub throw_error{
 	}
 }
 
-}
 # Contents of Mouse::Meta::Role
-BEGIN {
 package Mousse::Meta::Role;
 use Mousse::Util qw(:meta not_supported); # enables strict and warnings
 
@@ -4254,9 +4224,7 @@ sub does_role {
 	return 0;
 }
 
-}
 # Contents of Mouse::Meta::Role::Composite
-BEGIN {
 package Mousse::Meta::Role::Composite;
 use Mousse::Util; # enables strict and warnings
 use Mousse::Meta::Role;
@@ -4375,9 +4343,7 @@ sub _apply_methods{
 	$self->SUPER::_apply_methods($consumer, $args);
 	return;
 }
-}
 # Contents of Mouse::Meta::Role::Method
-BEGIN {
 package Mousse::Meta::Role::Method;
 use Mousse::Util; # enables strict and warnings
 
@@ -4394,9 +4360,7 @@ sub _new{
 	return $self;
 }
 
-}
 # Contents of Mouse::Object
-BEGIN {
 package Mousse::Object;
 use Mousse::Util qw(does dump meta); # enables strict and warnings
 
@@ -4407,9 +4371,7 @@ sub BUILDALL;
 sub DESTROY;
 sub DEMOLISHALL;
 
-}
 # Contents of Mouse::Role
-BEGIN {
 package Mousse::Role;
 use Mousse::Exporter; # enables strict and warnings
 
@@ -4547,9 +4509,7 @@ sub init_meta{
 	return $meta;
 }
 
-}
 # Contents of Mouse::Util::MetaRole
-BEGIN {
 package Mousse::Util::MetaRole;
 use Mousse::Util; # enables strict and warnings
 use Scalar::Util ();
@@ -4694,14 +4654,12 @@ sub _make_new_class {
 	)->name();
 }
 
-}
 ;
-END_OF_TINY
 
 package Mousse;
 
 our $VERSION = '0.10';
 
-Mousse::Exporter->setup_import_methods(also => 'Mousse');
+Mousse::Exporter->setup_import_methods(also => 'Mousse::TOP');
 
 1;

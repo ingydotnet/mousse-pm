@@ -19,7 +19,7 @@ sub make_mousse {
 sub fixups {
     my ($module, $contents) = @_;
     if ($module eq 'Mouse') {
-        $$contents =~ s/^(our\ \$VERSION)/#$1/m or die;
+        $$contents =~ s/Mouse/Mouse::TOP/m or die;
     }
     elsif ($module eq 'Mouse::Util') {
         $$contents =~ s/\n\n/\nno warnings 'once';\n\n/m or die;
@@ -96,9 +96,7 @@ sub make {
         $contents =~ s{^( (?:[ ]{4})+ )}{ "\t" x (length($1) / 4) }xmsge; # spaces to tabs
 
         $mousse .= "# Contents of $module\n";
-    $mousse .= "BEGIN {\n";
         $mousse .= $contents;
-    $mousse .= "}\n";
     }
 
     my $handle;
@@ -116,7 +114,7 @@ sub make {
 use strict;
 use warnings;
 
-# tell Perl we already have all of the Mouse files loaded:
+# tell Perl we already have all of the Mousse files loaded:
 EOF
 
     print { $handle } "BEGIN {\n";
@@ -128,18 +126,16 @@ EOF
 
     print { $handle } <<"END_OF_MOUSSE";
 }
-eval sprintf("#line %d %s\\n", __LINE__, __FILE__) . <<'END_OF_TINY';
 
-# and now their contents:
+# and now their contents
 
 $mousse;
-END_OF_TINY
 
 package $Mousse;
 
 our \$VERSION = '$Mousse::Maker::VERSION';
 
-$Mousse\::Exporter->setup_import_methods(also => '$Mousse');
+$Mousse\::Exporter->setup_import_methods(also => '$Mousse\::TOP');
 
 1;
 END_OF_MOUSSE
