@@ -6,7 +6,7 @@ use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(make);
 
-our $VERSION = '0.10';
+our $VERSION = '0.01';
 
 sub make_mousse {
     my $module = shift(@ARGV)
