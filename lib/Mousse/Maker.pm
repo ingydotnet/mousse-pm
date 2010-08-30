@@ -2,11 +2,13 @@ package Mousse::Maker;
 use strict;
 use warnings;
 
+use 5.008003;
+
 use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(make);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub make_mousse {
     my $module = shift(@ARGV)
@@ -168,32 +170,3 @@ sub slurp {
 }
 
 1;
-
-=encoding utf-8
-
-=head1 NAME
-
-Mousse - A Light and Tasty Moose for CPAN Authors
-
-=head1 SYNOPSIS
-
-    > perl -MMousse::Make -e make_mouse 'Chocolate::Mousse' > lib/Chocolate/Mousse.pm
-
-=head1 DESCRIPTION
-
-This is the module that will make you a L<Mousse>.
-
-=head1 AUTHOR
-
-Ingy döt Net <ingy@cpan.org>
-
-=head1 COPYRIGHT
-
-Copyright (c) 2010. Ingy döt Net.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
-
-See http://www.perl.com/perl/misc/Artistic.html
-
-=cut

@@ -1,5 +1,11 @@
 ---
-version: 0.10
+version: 0.02
+date:    Sun Aug 29 18:41:20 PDT 2010
+changes:
+- Fixed bootstrapping issue in Makefile.PL. Makefile.PL failed to find
+  Mousse::Maker.
+---
+version: 0.01
 date:    Thu Aug 26 06:35:25 PDT 2010
 changes:
 - Initial version.
