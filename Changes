@@ -1,4 +1,15 @@
 ---
+version: 0.04
+date:    Tue Aug 31 08:50:47 PDT 2010
+changes:
+- Fun doc change per ilmari++
+---
+version: 0.03
+date:    Sun Aug 29 18:41:20 PDT 2010
+changes:
+- Fixed another bootstrapping issue in Makefile.PL.
+  Made dist with 'use_mousse_dev'.
+---
 version: 0.02
 date:    Sun Aug 29 18:41:20 PDT 2010
 changes:

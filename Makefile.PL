@@ -6,7 +6,10 @@ name 'Mousse';
 
 perl_version '5.008003';
 
-use_mousse_dev 'Mousse';
+use_mousse 'Mousse';
+
+# Don't distribute with this one!
+# use_mousse_dev 'Mousse';
 
 {
     local $SIG{__WARN__} = sub {1};

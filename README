@@ -70,35 +70,15 @@ MOUSSE FEATURES AND ADVANTAGES
 
         use_mousse 'Foo::Widget::OO';
 
-    then Mousse::Maker will craft a "lib/Foo/Widget/OO.pm" file for you from
-    the Mouse parts installed on your system.
+    then Mousse::Maker will *whip up* a "lib/Foo/Widget/OO.pm" file for you
+    from the Mousse.pm installed on your system.
 
-  Mousse adds a touch of Gloom
-    Gloom is a much lighter weight OO module. It offers the bare minimum
-    essentials of OO. Gloom installs using the same Makefile.PL based
-    methodology as Mousse.
+    Alternatively, if you use *this* line in your Makefile.PL:
 
-    For the most part Gloom has lessfeatures to offer than Moose, but it
-    does have one nice API difference. Take a look at the code in the
-    synopsis. It could also be written like this:
+        use_mousse_dev 'Foo::Widget::OO';
 
-        package Chocolate::Jesus
-        use Chocolate::Mousse -base;
-
-        has 'forgiveness', is => 'ro';
-
-    and:
-
-        package Chocolate::Jeebus;
-        use Chocolate::Jesus -base;
-
-        has 'whiskers', is => 'rw';
-
-    By using the "-base" syntax, you don't need to use the "extends"
-    command. Every subclass of Mousse has all the OO injecting properties of
-    Mousse itself. In Gloom parlance, it is cascading.
-
-    Mousse allows this Gloom-style usage.
+    then Mousse::Maker will create a "lib/Foo/Widget/OO.pm" file for you
+    from the *Mouse* parts installed on your system.
 
   No Dependency Hell Issues
     When you distribute a module that uses Mousse for OO, you can be assured

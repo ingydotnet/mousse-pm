@@ -79,10 +79,21 @@ want to call it. For example, if you use this line in your Makefile.PL:
 
     use_mousse 'Foo::Widget::OO';
 
-then L<Mousse::Maker> will craft a C<lib/Foo/Widget/OO.pm> file for
-you from the Mouse parts installed on your system.
+then L<Mousse::Maker> will I<whip up> a C<lib/Foo/Widget/OO.pm> file for
+you from the Mousse.pm installed on your system.
 
-=head2 Mousse adds a touch of Gloom
+Alternatively, if you use I<this> line in your Makefile.PL:
+
+    use_mousse_dev 'Foo::Widget::OO';
+
+then L<Mousse::Maker> will create a C<lib/Foo/Widget/OO.pm> file for
+you from the I<Mouse> parts installed on your system.
+
+=begin comment
+
+XXX Not yet implemented.
+
+ =head2 Mousse adds a touch of Gloom
 
 L<Gloom> is a much lighter weight OO module. It offers the bare minimum
 essentials of OO. Gloom installs using the same Makefile.PL based
@@ -109,6 +120,8 @@ command. Every subclass of Mousse has all the OO injecting properties of
 Mousse itself. In Gloom parlance, it is cascading.
 
 Mousse allows this Gloom-style usage.
+
+=end comment
 
 =head2 No Dependency Hell Issues
 
