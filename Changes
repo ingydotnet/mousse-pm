@@ -1,4 +1,9 @@
 ---
+version: 0.05
+date:    Tue Aug 31 19:14:54 PDT 2010
+changes:
+- t/foo.t failed without Module::Install
+---
 version: 0.04
 date:    Tue Aug 31 08:50:47 PDT 2010
 changes:
