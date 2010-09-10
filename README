@@ -15,7 +15,7 @@ SYNOPSIS
 
     then in "lib/Chocolate/Jesus.pm":
 
-        package Chocolate::Jesus
+        package Chocolate::Jesus;
         use Chocolate::Mousse;
 
         has 'forgiveness', is => 'ro';
@@ -34,7 +34,7 @@ DESCRIPTION
 
     Mousse adds NO prerequisite dependencies to your CPAN module.
 
-    Mousse has the same performance qualities as the zippy Mouse.
+    Mousse has the same performance qualities as the zippy Mouse::Tiny.
 
     Mousse is enabled by adding one line to your Makefile.PL.
 
@@ -56,7 +56,7 @@ WHENCE MOUSSE?
     released.
 
     Another solution is to use Mousse! Mousse will remake your OO base
-    module from the current Mouse version you have installed, every time you
+    module from the current version of Mousse have installed, every time you
     run "perl Makefile.PL".
 
 MOUSSE FEATURES AND ADVANTAGES

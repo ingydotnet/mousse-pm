@@ -9,7 +9,7 @@ BEGIN { @ISA = 'Module::Install::Base' }
 
 sub use_mousse {
     my $self = shift;
-    return unless $self->admin;
+    return unless $self->is_admin;
     my $module = shift
         or die "use_mousse requires the name of a target module";
     my $output_path = $module;
@@ -21,7 +21,7 @@ sub use_mousse {
 
 sub use_mousse_dev {
     my $self = shift;
-    return unless $self->admin;
+    return unless $self->is_admin;
     my $module = shift
         or die "use_mousse_dev requires the name of a target module";
     my $output_path = $module;

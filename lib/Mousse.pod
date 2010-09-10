@@ -20,7 +20,7 @@ In your C<Makefile.PL>:
 
 then in C<lib/Chocolate/Jesus.pm>:
 
-    package Chocolate::Jesus
+    package Chocolate::Jesus;
     use Chocolate::Mousse;
 
     has 'forgiveness', is => 'ro';
@@ -40,7 +40,7 @@ L<Mousse> is the easiest way to get L<Moose> support for your OO CPAN module.
 
 L<Mousse> adds B<NO> prerequisite dependencies to your CPAN module.
 
-L<Mousse> has the same performance qualities as the zippy L<Mouse>.
+L<Mousse> has the same performance qualities as the zippy L<Mouse::Tiny>.
 
 L<Mousse> is enabled by adding one line to your Makefile.PL.
 
@@ -63,15 +63,15 @@ own module's OO base. But then you have to repeat that every time a new
 Mouse version is released.
 
 Another solution is to use B<Mousse>! Mousse will remake your OO base
-module from the current Mouse version you have installed, every time you
+module from the current version of Mousse have installed, every time you
 run C<perl Makefile.PL>.
 
 =head1 MOUSSE FEATURES AND ADVANTAGES
 
 =head2 Mousse IS Mouse
 
-To learn about the features of Mousse (i.e. your generated Mousse-based OO module),
-simply read L<Mouse>.
+To learn about the features of Mousse (i.e. your generated Mousse-based
+OO module), simply read L<Mouse>.
 
 Mousse is an exact copy of Mouse::*. It uses the same build process as
 Mouse::Tiny does, except that it names the resulting module whatever you

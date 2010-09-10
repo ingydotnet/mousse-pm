@@ -1,4 +1,11 @@
 ---
+version: 0.06
+date:    Thu Sep  9 17:57:44 PDT 2010
+changes:
+- use Mouse v0.65
+- Change admin to is_admin in M::I::Mousse
+- Fix doc
+---
 version: 0.05
 date:    Tue Aug 31 19:14:54 PDT 2010
 changes:
