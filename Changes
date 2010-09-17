@@ -1,8 +1,10 @@
 ---
 version: 0.07
-date:    
+date:    Fri Sep 17 15:35:53 PDT 2010
 changes:
+- Build on new Mouse-0.70
 - Add manifest_skip and readme_from to Makefile.PL
+- Updated docs
 ---
 version: 0.06
 date:    Thu Sep  9 17:57:44 PDT 2010

@@ -4,12 +4,6 @@
 
 Mousse - A Light and Tasty Moose for CPAN Authors
 
-=head1 STATUS
-
-This is a very early release of Mousse for developers to play with and
-comment on. Even though the design of Mousse is very straightforward,
-please wait a release or two for anything beyond a taste test.
-
 =head1 SYNOPSIS
 
 In your C<Makefile.PL>:
@@ -143,12 +137,27 @@ only update Mousse by hand, you can use this simple command:
 If you don't care about adding a dependency and you don't want to ship
 your own copy of Mousse, you can use it just like Mouse::Tiny.
 
+=head1 EXAMPLES
+
+L<Scalar::Random::PP> is an example of a CPAN module that uses Mousse.
+
+If you have a module to add here, let me know.
+
 =head1 RESOURCES
 
-The Mousse module can be found on CPAN and on GitHub:
-L<http://github.com/ingydotnet/mousse-pm>.
+CPAN: L<http://search.cpan.org/dist/Mousse/>
 
-Please join #moose-dev on irc.perl.org to discuss Mousse.
+GitHub: L<http://github.com/ingydotnet/mousse-pm>
+
+IRC: irc.perl.org#moose-dev
+
+=head1 CREDIT
+
+Thanks to Stevan Little for the movement that is L<Moose>.
+
+The guts of this module is pure, un(well slightly)adulterated L<Mouse>. 藤吾郎++
+
+Also, many thanks to Luke Closs' cat, Jeebus!
 
 =head1 AUTHOR
 
