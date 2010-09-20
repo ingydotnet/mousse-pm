@@ -1,4 +1,9 @@
 ---
+version: 0.10
+date:    Sat Sep 18 07:13:52 PDT 2010
+changes:
+- Update docs
+---
 version: 0.07
 date:    Fri Sep 17 15:35:53 PDT 2010
 changes:
