@@ -25,6 +25,8 @@ else {
 }
 manifest_skip;
 readme_from 'lib/Mousse.pod';
+ack_xxx;
+version_check;
 
 clean_files 't/lib/Foo/Mousse.pm', 't/inc', 'MANIFEST';
 
