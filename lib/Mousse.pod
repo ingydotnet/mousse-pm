@@ -17,7 +17,7 @@ then in C<lib/Chocolate/Jesus.pm>:
     package Chocolate::Jesus;
     use Chocolate::Mousse;
 
-    has 'forgiveness', is => 'ro';
+    has 'soul', is => 'ro';
 
 and:
 

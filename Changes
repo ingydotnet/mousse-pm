@@ -1,4 +1,9 @@
 ---
+version: 0.12
+date:    Fri Oct 29 09:45:28 PDT 2010
+changes:
+- Build on Mouse-0.81
+---
 version: 0.11
 date:    Tue Oct  5 23:05:23 PDT 2010
 changes:
