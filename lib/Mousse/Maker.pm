@@ -6,7 +6,7 @@ use 5.008003;
 
 use Exporter;
 our @ISA = qw(Exporter);
-our @EXPORT = qw(make);
+our @EXPORT = qw(make_mousse);
 
 our $VERSION = '0.12';
 
@@ -15,7 +15,7 @@ sub make_mousse {
         or die "make_mousse requires a module name argument";
     die "'$module' doesn't look like a module name"
         unless $module =~ /^\w(\w|::)+$/;
-    make_from_mouse($module, @ARGV);
+    make_from_mousse($module, @ARGV);
 }
 
 sub make_from_mousse {
@@ -31,7 +31,10 @@ sub make_from_mousse {
     $contents =~ s/Mousse(.)/(($1 eq '\/' or $1 eq '.') ? $Mousse2 : $Mousse) .$1/ge;
     my $handle;
     if ($MousseFile) {
-        open $handle, ">$MousseFile";
+        my $MousseDir = $MousseFile;
+        $MousseDir =~ s/(.*[\\\/]).*/$1/ and File::Path::mkpath($MousseDir);
+        open $handle, ">$MousseFile"
+            or die "Can't open $MousseFile for output";
     }
     else {
         $handle = \*STDOUT;
@@ -51,6 +54,7 @@ sub make_from_mouse {
 
     use File::Find;
     use Fatal qw(open close);
+    use File::Path;
 
     sub uniq{
         my %seen;
@@ -170,3 +174,40 @@ sub slurp {
 }
 
 1;
+
+=encoding utf-8
+
+=head1 NAME
+
+Mousse::Maker - Make Your Own Mousse Module
+
+=head1 SYNOPSIS
+
+In your C<Makefile.PL>:
+
+    use inc::Module::Install;
+    name 'Chocolate';
+    use_mousse 'Chocolate::Mousse';
+
+or (if you don't use Module::Install):
+
+    perl -MMousse::Maker -e make_mousse 'Chocolate::Mousse' > lib/Chocolate/Mousse.pm
+
+=head1 DESCRIPTION
+
+Mousse::Maker is the module that Module::Install::Mousse uses to generate your own Mousse OO base class module. You can also use it by hand in a Perl one liner (shown above) if your CPAN module doesn't use Module::Install for its Makefile.PL.
+
+=head1 AUTHOR
+
+Ingy döt Net <ingy@cpan.org>
+
+=head1 COPYRIGHT
+
+Copyright (c) 2010. Ingy döt Net.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+See http://www.perl.com/perl/misc/Artistic.html
+
+=cut

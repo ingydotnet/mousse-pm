@@ -4,6 +4,11 @@ use 5.008003;
 
 has 'this', is => 'rw';
 
+package Foo::Bar;
+use Foo::Bar::Baz::Mousse;
+
+has 'that', is => 'rw';
+
 1;
 
 =head1 NAME

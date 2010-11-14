@@ -7,6 +7,7 @@ use Module::Install::Base;
 use vars qw(@ISA);
 BEGIN { @ISA = 'Module::Install::Base' }
 
+# Make from Mousse (as in Chocolate)
 sub use_mousse {
     my $self = shift;
     return unless $self->is_admin;
@@ -19,6 +20,7 @@ sub use_mousse {
     Mousse::Maker::make_from_mousse($module, $output_path);
 }
 
+# Make from Mouse (as in Mickey)
 sub use_mousse_dev {
     my $self = shift;
     return unless $self->is_admin;
