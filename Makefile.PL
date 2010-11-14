@@ -8,7 +8,7 @@ perl_version '5.008003';
 
 if ($ENV{MOUSSE_AUTHOR}) {
     warn "\n\n*** WARNING *** Makefile.PL set to build new Mousse!\n\n";
-    use_mousse_dev 'Mousse';
+    use_mousse_dev('Mousse');
 }
 
 {
