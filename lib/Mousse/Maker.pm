@@ -8,7 +8,7 @@ use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(make_mousse);
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 sub make_mousse {
     my $module = shift(@ARGV)
@@ -203,7 +203,7 @@ Ingy döt Net <ingy@cpan.org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2010. Ingy döt Net.
+Copyright (c) 2010, 2011. Ingy döt Net.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
