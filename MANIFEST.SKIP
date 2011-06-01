@@ -5,6 +5,7 @@
 ^pod2htm.*
 ^MANIFEST\.SKIP$
 ^MANIFEST\.bak$
+^xt/
 ^\.git/
 ^\.gitignore
 ^\.gitmodules
@@ -15,6 +16,7 @@
 ^core$
 ^out$
 ^tmon.out$
+^.devel-local$
 ^\w$
 ^foo.*
 ^notes

@@ -16,7 +16,7 @@ if ($ENV{MOUSSE_AUTHOR}) {
     all_from 'lib/Mousse/Maker.pm';
     all_from 'lib/Mousse.pod';
 }
-manifest_skip;
+manifest_skip 'clean';
 readme_from 'lib/Mousse.pod';
 ack_xxx;
 version_check;
