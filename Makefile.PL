@@ -21,6 +21,4 @@ readme_from 'lib/Mousse.pod';
 ack_xxx;
 version_check;
 
-clean_files 't/lib/Foo/Mousse.pm', 't/lib/Foo/Bar/', 't/inc', 'MANIFEST';
-
 WriteAll;

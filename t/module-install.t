@@ -3,10 +3,8 @@ use File::Path;
 
 BEGIN {
     @INC = grep { not /[\\\/]inc$/ } @INC;
-    eval 'require Module::Install; 1' or do {
+    eval 'require Module::Install; 1' or
         plan skip_all => 'This test requires Module::Install';
-        return;
-    };
 
     File::Path::rmtree("t/lib/Foo/Bar");
     my $module_file = "t/lib/Foo/Mousse.pm";
@@ -31,3 +29,7 @@ my $f2 = Foo::Bar->new(
 );
 
 is $f2->that, 'ok', 'Everything is OK';
+
+File::Path::rmtree("t/lib/Foo/Bar");
+File::Path::rmtree("t/inc");
+File::Path::rmtree("t/lib/Foo/Mousse.pm");
