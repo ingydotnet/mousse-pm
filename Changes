@@ -1,4 +1,9 @@
 ---
+version: 0.15
+date:    Sun Jun  5 03:25:06 EST 2011
+changes:
+- Fix install bug.
+---
 version: 0.14
 date:    Wed Jun  1 15:04:30 EST 2011
 changes:
