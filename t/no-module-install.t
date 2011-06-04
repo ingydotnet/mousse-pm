@@ -27,3 +27,6 @@ my $f2 = Foo::Bar->new(
 );
 
 is $f2->that, 'ok', 'Everything is OK';
+
+File::Path::rmtree("t/lib/Foo/Bar");
+File::Path::rmtree("t/lib/Foo/Mousse.pm");
