@@ -21,4 +21,6 @@ readme_from 'lib/Mousse.pod';
 ack_xxx;
 version_check;
 
+repository 'https://github.com/ingydotnet/mousse-pm';
+
 WriteAll;
